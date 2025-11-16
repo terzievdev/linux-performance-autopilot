@@ -1,0 +1,22 @@
+[Unit]
+Description=Linux Performance Autopilot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/opt/autopilot/scripts/autopilot.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+NoNewPrivileges=false
+PrivateTmp=false
+
+CPUQuota=20%
+MemoryLimit=256M
+
+[Install]
+WantedBy=multi-user.target
